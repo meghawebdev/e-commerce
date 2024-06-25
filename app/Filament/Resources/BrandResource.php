@@ -33,7 +33,7 @@ class BrandResource extends Resource
                                 ->live(onBlur: true)
                                 ->afterStateUpdated(fn (string $operation, $state, Set $set) => $operation === 'create' ? $set('slug', Str::slug($state)) : null),
                             Forms\Components\TextInput::make('slug')
-                            // i'll make it unique in category model in slug column
+                            // i'll make it unique in brand model in slug column
                                 ->unique(Brand::class, 'slug', ignoreRecord: true)
                                 ->required()
                                 ->disabled()
@@ -43,7 +43,7 @@ class BrandResource extends Resource
                         ]),
                     Forms\Components\FileUpload::make('image')
                         ->image()
-                        ->directory('categories'),
+                        ->directory('brands'),
                     Forms\Components\Toggle::make('is_active')
                         ->required()
                         ->default(true),
