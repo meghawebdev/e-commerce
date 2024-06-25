@@ -5,7 +5,6 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\BrandResource\Pages;
 use App\Models\Brand;
 use Filament\Forms;
-use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
 use Filament\Forms\Set;
@@ -24,30 +23,30 @@ class BrandResource extends Resource
     {
         return $form
             ->schema([
-                Section::make([
-                    Grid::make()
-                        ->schema([
-                            Forms\Components\TextInput::make('name')
-                                ->required()
-                                ->maxLength(255)
-                                ->live(onBlur: true)
-                                ->afterStateUpdated(fn (string $operation, $state, Set $set) => $operation === 'create' ? $set('slug', Str::slug($state)) : null),
-                            Forms\Components\TextInput::make('slug')
-                            // i'll make it unique in brand model in slug column
-                                ->unique(Brand::class, 'slug', ignoreRecord: true)
-                                ->required()
-                                ->disabled()
-                                // dehydrated method ensures that even though the input is disabled (non-editable), its value will still be the part of submitted data.
-                                ->dehydrated()
-                                ->maxLength(255),
-                        ]),
-                    Forms\Components\FileUpload::make('image')
-                        ->image()
-                        ->directory('brands'),
-                    Forms\Components\Toggle::make('is_active')
-                        ->required()
-                        ->default(true),
-                ]),
+                Section::make()
+                    ->schema([
+                        Forms\Components\TextInput::make('name')
+                            ->required()
+                            ->maxLength(255)
+                            ->live(onBlur: true)
+                            ->afterStateUpdated(fn (string $operation, $state, Set $set) => $operation === 'create' ? $set('slug', Str::slug($state)) : null),
+                        Forms\Components\TextInput::make('slug')
+                        // i'll make it unique in brand model in slug column
+                            ->unique(Brand::class, 'slug', ignoreRecord: true)
+                            ->required()
+                            ->disabled()
+                            // dehydrated method ensures that even though the input is disabled (non-editable), its value will still be the part of submitted data.
+                            ->dehydrated()
+                            ->maxLength(255),
+                        Forms\Components\FileUpload::make('image')
+                            ->image()
+                            ->columnSpanFull()
+                            ->directory('brands'),
+                        Forms\Components\Toggle::make('is_active')
+                            ->required()
+                            ->default(true),
+                    ])
+                    ->columns(2),
             ]);
     }
 
