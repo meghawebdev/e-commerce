@@ -11,6 +11,7 @@ use Filament\Forms\Form;
 use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
 
@@ -125,7 +126,12 @@ class ProductResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
+                SelectFilter::make('Category')
+                    ->label('Filter by department')
+                    ->relationship('category', 'name'),
+                SelectFilter::make('Brand')
+                    ->label('Filter by brand')
+                    ->relationship('brand', 'name'),
             ])
             ->actions([
                 Tables\Actions\ActionGroup::make([
