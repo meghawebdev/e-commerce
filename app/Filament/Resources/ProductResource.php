@@ -127,7 +127,7 @@ class ProductResource extends Resource
             ])
             ->filters([
                 SelectFilter::make('Category')
-                    ->label('Filter by department')
+                    ->label('Filter by category')
                     ->relationship('category', 'name'),
                 SelectFilter::make('Brand')
                     ->label('Filter by brand')

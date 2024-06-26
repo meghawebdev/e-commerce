@@ -17,11 +17,11 @@ return new class extends Migration
             $table->decimal('grand_total', 10, 2);
             $table->string('payment_method');
             $table->string('payment_status');
-            $table->enum('status', ['order placed', 'confirmed', 'shipped', 'in transit', 'delivered', 'canceled'])->default('order placed');
+            $table->enum('status', ['new', 'processing', 'shipped', 'delivered', 'canceled'])->default('new');
             $table->string('currency');
-            $table->decimal('shipping_amount', 10, 2);
-            $table->string('shipping_method');
-            $table->string('notes');
+            $table->decimal('shipping_amount', 10, 2)->nullable();
+            $table->string('shipping_method')->nullable();
+            $table->string('notes')->nullable();
             $table->timestamps();
         });
     }
