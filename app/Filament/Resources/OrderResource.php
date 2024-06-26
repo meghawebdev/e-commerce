@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\OrderResource\Pages;
+use App\Filament\Resources\OrderResource\RelationManagers\AddressRelationManager;
 use App\Models\Order;
 use App\Models\Product;
 use Filament\Forms;
@@ -178,7 +179,8 @@ class OrderResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('shipping_method')
                     ->searchable()
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\SelectColumn::make('status')
                     ->options([
                         'new' => 'New',
@@ -221,7 +223,8 @@ class OrderResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            // now it will show the address belong to this order. it will show only in edit & view page
+            AddressRelationManager::class,
         ];
     }
 
