@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\OrderResource\Pages;
 use App\Filament\Resources\OrderResource\RelationManagers\AddressRelationManager;
+use App\Filament\Resources\OrderResource\Widgets\OrderStats;
 use App\Models\Order;
 use App\Models\Product;
 use Filament\Forms;
@@ -225,6 +226,13 @@ class OrderResource extends Resource
         return [
             // now it will show the address belong to this order. it will show only in edit & view page
             AddressRelationManager::class,
+        ];
+    }
+
+    public static function getWidgets(): array
+    {
+        return [
+            OrderStats::class,
         ];
     }
 
