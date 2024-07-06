@@ -1,6 +1,8 @@
 <?php
 
+use App\Livewire\Auth\ForgotPassword;
 use App\Livewire\Auth\Login;
+use App\Livewire\Auth\Register;
 use App\Livewire\CartPage;
 use App\Livewire\CategoriesPage;
 use App\Livewire\CheckoutPage;
@@ -20,3 +22,5 @@ Route::get('/checkout', CheckoutPage::class);
 Route::get('/orders', OrdersPage::class);
 Route::get('/orders/{order}', OrderDetailPage::class);
 Route::get('/login', Login::class);
+Route::get('/register', Register::class);
+Route::get('/forgot-password', ForgotPassword::class);
