@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Auth\Login;
 use App\Livewire\CartPage;
 use App\Livewire\CategoriesPage;
 use App\Livewire\CheckoutPage;
@@ -18,3 +19,4 @@ Route::get('/cart', CartPage::class);
 Route::get('/checkout', CheckoutPage::class);
 Route::get('/orders', OrdersPage::class);
 Route::get('/orders/{order}', OrderDetailPage::class);
+Route::get('/login', Login::class);
