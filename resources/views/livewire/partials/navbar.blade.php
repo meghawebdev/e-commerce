@@ -35,24 +35,20 @@
                     <div
                         class="flex flex-col gap-x-0 mt-5 divide-y divide-dashed divide-gray-200 md:flex-row md:items-center md:justify-end md:gap-x-7 md:mt-0 md:ps-7 md:divide-y-0 md:divide-solid dark:divide-gray-700">
 
-                        <a wire:navigate
-                            class="{{ request()->is('/') ? 'text-blue-600' : 'text-gray-500' }} font-medium py-3 md:py-6 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                        <a class="{{ request()->is('/') ? 'text-blue-600' : 'text-gray-500' }} font-medium py-3 md:py-6 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                             href="/" aria-current="page">Home</a>
 
-                        <a wire:navigate
-                            class="{{ request()->is('categories') ? 'text-blue-600' : 'text-gray-500' }} font-medium hover:text-gray-400 py-3 md:py-6 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                        <a class="{{ request()->is('categories') ? 'text-blue-600' : 'text-gray-500' }} font-medium hover:text-gray-400 py-3 md:py-6 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                             href="/categories">
                             Categories
                         </a>
 
-                        <a wire:navigate
-                            class="{{ request()->is('products') ? 'text-blue-600' : 'text-gray-500' }} font-medium hover:text-gray-400 py-3 md:py-6 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                        <a class="{{ request()->is('products') ? 'text-blue-600' : 'text-gray-500' }} font-medium hover:text-gray-400 py-3 md:py-6 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                             href="/products">
                             Products
                         </a>
 
-                        <a wire:navigate
-                            class="{{ request()->is('cart') ? 'text-blue-600' : 'text-gray-500' }} font-medium flex items-center hover:text-gray-400 py-3 md:py-6 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                        <a class="{{ request()->is('cart') ? 'text-blue-600' : 'text-gray-500' }} font-medium flex items-center hover:text-gray-400 py-3 md:py-6 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                             href="/cart">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="currentColor" class="flex-shrink-0 w-5 h-5 mr-1">
