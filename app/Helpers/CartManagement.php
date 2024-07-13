@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Cookie;
 class CartManagement
 {
     // add item to cart
+    // this method accept one parameter which is product_id and it returns the count of all the items which available in cart
     public static function addItemToCart($product_id)
     {
         $cart_items = self::getCartItemsFromCookie();
