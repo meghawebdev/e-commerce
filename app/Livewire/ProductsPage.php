@@ -30,6 +30,9 @@ class ProductsPage extends Component
     #[Url]
     public $price_range = 300000;
 
+    #[Url]
+    public $sort;
+
     public function render()
     {
         $products = Product::where('is_active', true);
@@ -53,6 +56,13 @@ class ProductsPage extends Component
         }
         if (! empty($this->price_range)) {
             $products->whereBetween('price', [0, $this->price_range]);
+        }
+
+        if ($this->sort === 'latest') {
+            $products->latest();
+        }
+        if ($this->sort === 'price') {
+            $products->orderBy('price');
         }
 
         return view('livewire.products-page', [
