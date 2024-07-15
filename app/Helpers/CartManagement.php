@@ -9,6 +9,7 @@ class CartManagement
 {
     // add item to cart
     // this method accept one parameter which is product_id and it returns the count of all the items which available in cart
+    // this method add only one quantity of any product into the cart
     public static function addItemToCart($product_id)
     {
         $cart_items = self::getCartItemsFromCookie();
@@ -36,6 +37,44 @@ class CartManagement
                     'name' => $product->name,
                     'image' => $product->images[1],
                     'quantity' => 1,
+                    'unit_amount' => $product->price,
+                    'total_amount' => $product->price,
+                ];
+            }
+        }
+        self::addCartItemsToCookie($cart_items);
+
+        return count($cart_items);
+    }
+
+    // add item to cart with quantity
+    public static function addItemToCartWithQty($product_id, $qty = 1)
+    {
+        $cart_items = self::getCartItemsFromCookie();
+        $existing_item = null;
+        foreach ($cart_items as $key => $item) {
+            // we check if current added product is available in cookie then we assign this existing_item within the array key
+            if ($item['product_id'] == $product_id) {
+                $existing_item = $key;
+                break;
+            }
+        }
+        if ($existing_item !== null) {
+            // it means if current added product is already available in cookie then we will only update the quantity
+            $cart_items[$existing_item]['quantity'] = $qty;
+            $cart_items[$existing_item]['total_amount'] = $cart_items[$existing_item]['quantity'] * $cart_items[$existing_item]['unit_amount'];
+
+        }
+        // if the product is not available in cookie then we will add the first item in the cookie
+        else {
+            $product = Product::where('id', $product_id)->first(['id', 'name', 'price', 'images']);
+            if ($product) {
+                // if product found then we will add one item in the cart item variable
+                $cart_items[] = [
+                    'product_id' => $product->id,
+                    'name' => $product->name,
+                    'image' => $product->images[1],
+                    'quantity' => $qty,
                     'unit_amount' => $product->price,
                     'total_amount' => $product->price,
                 ];
@@ -84,6 +123,7 @@ class CartManagement
     }
 
     // increment item quantity
+    // this method return the updated card items
     public static function incrementQuantityToCartItem($product_id)
     {
         $cart_items = self::getCartItemsFromCookie();
