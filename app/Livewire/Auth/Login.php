@@ -2,7 +2,6 @@
 
 namespace App\Livewire\Auth;
 
-use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
@@ -22,8 +21,6 @@ class Login extends Component
             'password' => 'required',
         ]);
         if (! auth()->attempt(['email' => $this->email, 'password' => $this->password])) {
-            // throw ValidationException::withMessages(['password' => 'Your email and password could not be verified']);
-            // return back()->withInput()->withErrors(['password' => 'Your email and password could not be verified']);
             session()->flash('error', 'Invalid credentials');
 
             return;
