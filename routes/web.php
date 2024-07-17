@@ -21,14 +21,24 @@ Route::get('/categories', CategoriesPage::class);
 Route::get('/products', ProductsPage::class);
 Route::get('/products/{slug}', ProductDetailPage::class);
 Route::get('/cart', CartPage::class);
-Route::get('/checkout', CheckoutPage::class);
-Route::get('/orders', OrdersPage::class);
-Route::get('/orders/{order}', OrderDetailPage::class);
 
-Route::get('/login', Login::class);
-Route::get('/register', Register::class);
-Route::get('/forgot-password', ForgotPassword::class);
-Route::get('/reset-password', ResetPassword::class);
+Route::middleware('guest')->group(function () {
+    Route::get('/login', Login::class);
+    Route::get('/register', Register::class);
+    Route::get('/forgot-password', ForgotPassword::class);
+    Route::get('/reset-password', ResetPassword::class);
+});
 
-Route::get('/success', SuccessPage::class);
-Route::get('/cancel', CancelPage::class);
+Route::middleware('auth')->group(function () {
+    // once a user is logged in or authenticated then only user can able to view the page
+    Route::get('/logout', function () {
+        auth()->logout();
+
+        return redirect('/');
+    });
+    Route::get('/checkout', CheckoutPage::class);
+    Route::get('/orders', OrdersPage::class);
+    Route::get('/orders/{order}', OrderDetailPage::class);
+    Route::get('/success', SuccessPage::class);
+    Route::get('/cancel', CancelPage::class);
+});
