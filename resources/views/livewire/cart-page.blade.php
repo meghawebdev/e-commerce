@@ -64,11 +64,11 @@
                     </div>
                     <div class="flex justify-between mb-2">
                         <span>Taxes</span>
-                        <span>{{ Number::currency($grand_total, 'INR') }}</span>
+                        <span>{{ Number::currency(0, 'INR') }}</span>
                     </div>
                     <div class="flex justify-between mb-2">
                         <span>Shipping</span>
-                        <span>{{ Number::currency($grand_total, 'INR') }}</span>
+                        <span>{{ Number::currency(0, 'INR') }}</span>
                     </div>
                     <hr class="my-2">
                     <div class="flex justify-between mb-2">

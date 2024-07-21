@@ -28,6 +28,7 @@ class CheckoutPage extends Component
 
     public function placeOrder()
     {
+        dd($this->payment_method);
         $this->validate([
             'first_name' => 'required',
             'last_name' => 'required',
