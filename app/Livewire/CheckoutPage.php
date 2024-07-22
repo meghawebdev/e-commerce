@@ -113,7 +113,8 @@ class CheckoutPage extends Component
         $order->orderItems()->createMany($cart_items);
         // once the order is processed then i will clear all the cart items
         CartManagement::clearCartItemsFromCookie();
-        // befor redirecting to success page, we will send a mail
+        // before redirecting to success page, we will send a mail
+
         Mail::to(auth()->user()->email)->send(new OrderPlaced($order));
 
         return redirect($redirect_url);
