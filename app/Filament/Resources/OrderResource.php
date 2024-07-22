@@ -42,9 +42,7 @@ class OrderResource extends Resource
                             ->relationship('user', 'name'),
                         Forms\Components\Select::make('payment_method')
                             ->options([
-                                'GPay' => 'Google Pay',
-                                'phone pay' => 'Phone Pay',
-                                'upi' => 'UPI',
+                                'stripe' => 'Stripe',
                                 'cod' => 'Cash On Delivery',
                             ])
                             ->required(),
