@@ -3,8 +3,10 @@
 namespace App\Livewire;
 
 use App\Helpers\CartManagement;
+use App\Mail\OrderPlaced;
 use App\Models\Address;
 use App\Models\Order;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 use Stripe\Checkout\Session;
@@ -111,6 +113,8 @@ class CheckoutPage extends Component
         $order->orderItems()->createMany($cart_items);
         // once the order is processed then i will clear all the cart items
         CartManagement::clearCartItemsFromCookie();
+        // befor redirecting to success page, we will send a mail
+        Mail::to(auth()->user()->email)->send(new OrderPlaced($order));
 
         return redirect($redirect_url);
 
