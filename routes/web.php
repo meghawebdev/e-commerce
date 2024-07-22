@@ -25,8 +25,8 @@ Route::get('/cart', CartPage::class);
 Route::middleware('guest')->group(function () {
     Route::get('/login', Login::class)->name('login');
     Route::get('/register', Register::class);
-    Route::get('/forgot-password', ForgotPassword::class);
-    Route::get('/reset-password', ResetPassword::class);
+    Route::get('/forgot-password', ForgotPassword::class)->name('password.forgot');
+    Route::get('/reset-password', ResetPassword::class)->name('password.reset');
 });
 
 Route::middleware('auth')->group(function () {
