@@ -231,10 +231,9 @@
                                 class="object-cover w-full h-64 rounded-t-lg">
                         </a>
                         <div class="p-5 text-center">
-                            <a href=""
-                                class="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-300">
+                            <span class="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-300">
                                 {{ $brand->name }}
-                            </a>
+                            </span>
                         </div>
                     </div>
                 @endforeach

@@ -22,19 +22,47 @@
             </div>
             <!-- End Col -->
 
+            {{-- <div class="col-span-1">
+                <h4 class="font-semibold text-gray-100">Legal</h4>
+
+                <div class="mt-3 grid space-y-3">
+                    <p><a class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                            href="#">Refund Policy</a></p>
+                    <p><a class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                            href="#">Shipping Policy</a></p>
+                    <p><a class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                            href="#">Privacy Policy</a></p>
+                    <p><a class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                            href="#">Terms of Service</a></p>
+                </div>
+            </div> --}}
+
             <div class="col-span-1">
                 <h4 class="font-semibold text-gray-100">Company</h4>
 
                 <div class="mt-3 grid space-y-3">
                     <p><a class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                            href="#">About us</a></p>
-                    <p><a class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                            href="#">Blog</a></p>
+                            href="/about">About us</a></p>
+                    {{-- <p><a class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                            href="#">Blog</a></p> --}}
+                </div>
+            </div>
+
+            <div class="col-span-1">
+                <h4 class="font-semibold text-gray-100">Contact</h4>
+
+                <div class="mt-3 grid space-y-3">
+                    <p><a href="mailto:meghainfo16@gmail.com"
+                            class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                            href="/about">meghainfo16@gmail.com</a></p>
+                    <p><a href="tel:+918168865798"
+                            class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                            href="#">+91 81688 65798</a></p>
                 </div>
             </div>
             <!-- End Col -->
 
-            <div class="col-span-2">
+            {{-- <div class="col-span-2">
                 <h4 class="font-semibold text-gray-100">Stay up to date</h4>
 
                 <form>
@@ -52,7 +80,7 @@
                     </div>
 
                 </form>
-            </div>
+            </div> --}}
             <!-- End Col -->
         </div>
         <!-- End Grid -->
