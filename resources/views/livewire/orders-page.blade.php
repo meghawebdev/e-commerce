@@ -26,6 +26,44 @@
                         </thead>
                         <tbody>
                             @foreach ($orders as $order)
+                                @php
+                                    $order_status = '';
+                                    $payment_status = '';
+
+                                    if ($order->status == 'new') {
+                                        $order_status =
+                                            '<span class="bg-blue-500 py-1 px-3 rounded text-white shadow">New</span>';
+                                    }
+                                    if ($order->status == 'processing') {
+                                        $order_status =
+                                            '<span class="bg-yellow-500 py-1 px-3 rounded text-white shadow">Processing</span>';
+                                    }
+                                    if ($order->status == 'shipped') {
+                                        $order_status =
+                                            '<span class="bg-green-500 py-1 px-3 rounded text-white shadow">Shipped</span>';
+                                    }
+                                    if ($order->status == 'delivered') {
+                                        $order_status =
+                                            '<span class="bg-green-700 py-1 px-3 rounded text-white shadow">Delivered</span>';
+                                    }
+                                    if ($order->status == 'canceled') {
+                                        $order_status =
+                                            '<span class="bg-red-500 py-1 px-3 rounded text-white shadow">Cancelled</span>';
+                                    }
+
+                                    if ($order->payment_status == 'pending') {
+                                        $payment_status =
+                                            '<span class="bg-blue-500 py-1 px-3 rounded text-white shadow">Pending</span>';
+                                    }
+                                    if ($order->payment_status == 'paid') {
+                                        $payment_status =
+                                            '<span class="bg-green-500 py-1 px-3 rounded text-white shadow">Paid</span>';
+                                    }
+                                    if ($order->payment_status == 'failed') {
+                                        $payment_status =
+                                            '<span class="bg-red-500 py-1 px-3 rounded text-white shadow">Failed</span>';
+                                    }
+                                @endphp
                                 <tr class="odd:bg-white even:bg-gray-100 dark:odd:bg-slate-900 dark:even:bg-slate-800">
                                     <td
                                         class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">
@@ -33,12 +71,10 @@
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
                                         {{ $order->created_at->format('d-m-Y') }}</td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
-                                        <span
-                                            class="bg-orange-500 py-1 px-3 rounded text-white shadow">{{ $order->status }}</span>
+                                        {!! $order_status !!}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
-                                        <span
-                                            class="bg-green-500 py-1 px-3 rounded text-white shadow">{{ $order->payment_status }}</span>
+                                        {!! $payment_status !!}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
                                         {{ Number::currency($order->grand_total) }}</td>
@@ -49,10 +85,12 @@
                                     </td>
                                 </tr>
                             @endforeach
-
                         </tbody>
                     </table>
                 </div>
+            </div>
+            <div class="mt-6">
+                {{ $orders->links() }}
             </div>
         </div>
     </div>

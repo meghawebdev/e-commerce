@@ -16,7 +16,7 @@ class OrdersPage extends Component
     public function render()
     {
         // fetch all orders of currently logged in user
-        $orders = Order::where('user_id', auth()->user()->id)->latest()->paginate(2);
+        $orders = Order::where('user_id', auth()->user()->id)->latest()->paginate(6);
 
         return view('livewire.orders-page', [
             'orders' => $orders,
