@@ -19,6 +19,7 @@ class SuccessPage extends Component
 
     public function render()
     {
+        // fetch latest order of currently logged in user
         $latest_order = Order::with('address')->where('user_id', auth()->user()->id)->latest()->first();
         // if there is any session_id in url then we will get all the session checkout details
         if ($this->session_id) {
