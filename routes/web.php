@@ -38,7 +38,7 @@ Route::middleware('auth')->group(function () {
     });
     Route::get('/checkout', CheckoutPage::class);
     Route::get('/orders', OrdersPage::class);
-    Route::get('/orders/{order}', OrderDetailPage::class)->name('orders.show');
+    Route::get('/orders/{order_id}', OrderDetailPage::class)->name('orders.show');
     Route::get('/success', SuccessPage::class)->name('success');
     Route::get('/cancel', CancelPage::class)->name('cancel');
 });

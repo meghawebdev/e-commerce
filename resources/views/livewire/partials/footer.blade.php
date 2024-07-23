@@ -17,7 +17,7 @@
                     <p><a class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                             href="/products">All Products</a></p>
                     <p><a class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                            href="/products">Featured Products</a></p>
+                            href="/products?featured=true">Featured Products</a></p>
                 </div>
             </div>
             <!-- End Col -->
@@ -30,9 +30,6 @@
                             href="#">About us</a></p>
                     <p><a class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                             href="#">Blog</a></p>
-
-                    <p><a class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                            href="#">Customers</a></p>
                 </div>
             </div>
             <!-- End Col -->
